@@ -1,0 +1,355 @@
+/* --- Importação da fonte usada --- */
+@import url('https://fonts.googleapis.com/css?family=Courgette|Open+Sans:400;800&display=swap');
+
+/* --- Resets --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Variáveis --- */
+:root {
+    --dark-color: #2d2c2c;
+    --blue-solid: #0d47a1; /* --rgb(13, 71, 161) */
+    --yellow-solid: #f39b00; /* rgb(243, 155, 0) */
+}
+
+/* --- Estilos globais --- */
+html {
+    font-size: 10px;
+}
+
+body {
+    max-width: 100vw;
+    max-height: 100vh;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    color: var(--dark-color);
+    /* overflow: hidden; */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+section {
+    padding: 3rem 0;
+}
+
+/* --- Estilo reusáveis --- */
+.container {
+    width: 100%;
+    max-width: 120rem;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+
+.form-btn {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: .3rem;
+    display: flex;
+    padding: 1rem 4rem 1rem 4rem;
+    margin: auto;
+    cursor: pointer;
+    background-color: var(--blue-solid);
+}
+
+.form-btn:hover {
+    background-color: #1a237e;
+}
+
+/* --- Estilos do Cabeçalho --- */
+.header-contato {
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    background-color: var(--blue-solid);
+}
+
+/* --- Estilos do Cabeçalho - navmenu --- */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    max-width: 70%;    
+}
+
+.logo-rodape img {
+    width: 40%;
+}
+
+.hamburger-menu {
+    font-size: 2.6rem;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 1500;
+}
+
+.hamburger-menu .fa-times {
+    display: none;
+}
+
+.menu-open .hamburger-menu .fa-times {
+    display: block;
+}
+
+.menu-open .hamburger-menu .fa-bars {
+    display: none;
+}
+
+.nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--blue-solid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1400;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .5s;
+}
+
+.menu-open .nav-list {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav-item:not(:last-child) {
+    margin-bottom: .5rem;
+}
+
+.nav-link {
+    display: block;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 1rem;
+}
+
+/* --- Título Estilos --- */
+.titulo-wrap {
+    text-align: center;
+    margin-bottom: 2.2rem;
+}
+
+.titulo {
+    display: block;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+/* --- Contato Estilos --- */
+.contato-content {
+    display: flex;
+    justify-content: center;
+}
+
+.contato-wrap {
+    display: none;
+}
+
+.contato-form {
+    width: 100%;
+    background-color: var(--yellow-solid);
+    padding: 2rem 2.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.contato-form input,
+.contato-form textarea  {
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    width: 100%;
+    min-height: 4rem;
+    padding: 1rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+    resize: none;
+    border: 1px solid #fff;
+}
+
+input[placeholder=Logradouro] {
+    width: 155%;
+}
+
+input[type=number] {
+    width: 45%;
+    float: right;
+}
+
+::placeholder {
+    color: inherit;
+}
+
+/* --- Estilos do Rodapé --- */
+.footer {
+    background-color: var(--blue-solid);
+    color: #fff;
+    width: 100vw;
+    position: fixed;
+    bottom: 0 !important;
+}
+
+.footer-heading {
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+.social-media-wrap {
+    display: flex;
+    padding: .5rem 0;
+}
+
+.social-media {
+    display: flex;
+    margin-left: 1rem;
+    padding: 1rem;
+}
+
+.sm-link {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    border: 2px solid var(--yellow-solid);
+    border-radius: 50%;
+    display: flex;
+    margin-right: 1rem;
+    transition: background-color .5s;
+}
+
+.sm-link:hover {
+    background-color: var(--yellow-solid);
+    color: var(--dark-color);
+}
+
+.sm-link i {
+    margin: auto;
+}
+
+/* --- Media queries --- */
+@media screen and (max-width: 768px) {
+    .contato-form {
+        margin-bottom: 18vh;
+    }
+    input[placeholder=Logradouro] {
+        width: 100%;
+    }
+    input[type=number] {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        height: 10rem;
+    }
+    .header.active {
+        height: 6rem;
+    }
+    /* --- Contato Estilos --- */
+    .contato-content {
+        justify-content: space-between;
+    }
+    .contato-wrap {
+        display: block;
+        flex: 0 0 50%;
+        padding: 0rem 2.5rem;
+    }
+    .contato-wrap img {
+        width: 100%; 
+        height: 100%;
+    }
+    .contato-form {
+        flex: 0 0 50%;
+        align-self: flex-start;
+    }
+    .input-group-wrap {
+        display: flex;
+    }
+    .input-group-wrap .input-group {
+        width: 50%;
+        margin-right: 2rem;
+    }
+    .input-group-wrap .input-group:last-child {
+        margin-right: 0;
+    }
+    /* --- Estilos do Rodapé  --- */
+    .footer-content {
+        display: flex;
+    }
+    .footer-content-brand {
+        margin-bottom: 0;
+        flex: 0 0 60%;
+    }
+    .footer .paragraph {
+        margin-top: 2.5rem;
+    }
+    .footer-heading {
+        font-size: 2rem;
+        letter-spacing: .3rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    section {
+        padding: 3rem 0;
+    }
+    /* --- Cabeçalho Estilos --- */
+    .hamburger-menu {
+        display: none;
+    }
+    .nav-list {
+        position: initial;
+        width: initial;
+        height: initial;
+        background-color: transparent;
+        flex-direction: row;
+        justify-content: initial;
+        opacity: 1;
+        transform: scale(1);
+    }
+    .nav-item:not(:last-child) {
+        margin-right: 3rem;
+        margin-bottom: 0;
+    }
+    .nav-link {
+        font-size: 1.5rem;
+        font-weight: normal;
+        transition: color .5s;
+    }
+    .nav-link:hover {
+        color: var(--yellow-solid);
+    }
+}
